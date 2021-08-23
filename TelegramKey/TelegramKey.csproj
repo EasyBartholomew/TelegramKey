@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F54086D-95C8-43EB-A860-93AACA71229B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TelegramKey</RootNamespace>
+    <AssemblyName>TelegramKey</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Telegram.Bot, Version=17.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telegram.Bot.17.0.0-alpha.3\lib\netstandard2.0\Telegram.Bot.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Bot\AwaitableMessage.cs" />
+    <Compile Include="Bot\AwaitableQuery.cs" />
+    <Compile Include="Bot\Helpers\CompareHelper.cs" />
+    <Compile Include="Bot\TelegramBot.cs" />
+    <Compile Include="Bot\Commands\Command.cs" />
+    <Compile Include="Bot\Commands\CommandDescription.cs" />
+    <Compile Include="Bot\Helpers\BotCommandScopeHelper.cs" />
+    <Compile Include="Bot\Helpers\EnumHelper.cs" />
+    <Compile Include="Bot\ITelegramBot.cs" />
+    <Compile Include="Bot\ICommand.cs" />
+    <Compile Include="Bot\Commands\ICommandDescription.cs" />
+    <Compile Include="Bot\Commands\ICommandHandler.cs" />
+    <Compile Include="Bot\IDataManager.cs" />
+    <Compile Include="Bot\IReceiver.cs" />
+    <Compile Include="Bot\IUpdateDaemon.cs" />
+    <Compile Include="Bot\DataManager.cs" />
+    <Compile Include="Bot\TelegramBotFactory.cs" />
+    <Compile Include="Bot\UpdateDaemon.cs" />
+    <Compile Include="Bot\Receiver.cs" />
+    <Compile Include="Bot\UserSession.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Text\Implementation\CommandArgument.cs" />
+    <Compile Include="Text\Helpers\CommandArgumentHelper.cs" />
+    <Compile Include="Text\CommandType.cs" />
+    <Compile Include="Text\ICommandArgument.cs" />
+    <Compile Include="Text\IParsedCommand.cs" />
+    <Compile Include="Text\ITextCommandParser.cs" />
+    <Compile Include="Text\ITextParser.cs" />
+    <Compile Include="Text\Implementation\MentionTextCommandParser.cs" />
+    <Compile Include="Text\Implementation\ParsedCommand.cs" />
+    <Compile Include="Text\Implementation\TextCommandParser.cs" />
+    <Compile Include="Text\TextParserFactory.cs" />
+    <Compile Include="Text\Implementation\TextParser.cs" />
+    <Compile Include="Text\TextType.cs" />
+    <Compile Include="Text\Helpers\TextTypeHelper.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
